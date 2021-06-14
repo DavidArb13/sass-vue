@@ -1,0 +1,35 @@
+@mixin sizes ($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin button ($width: 150px, $height:0, $background-color:transparent) {
+	width: $width;
+	height: $height;
+	border: 1px solid $splitRight;
+	background-color: $background-color;
+	border-radius: 3rem;
+	opacity: 0.3;
+	transition: 1s;
+	text-transform: uppercase;
+	cursor: pointer;
+	&:hover {
+		opacity: 1;
+		height: 30px;
+		background-color: $splitRight;
+		color: $whiteShadow;
+	}
+}
+
+@mixin content ($justify-content: center, $align-items: center, $min-height: 100vh, $display: flex) {
+	justify-content: $justify-content;
+	align-items: $align-items;
+	min-height: $min-height;
+	display: $display;
+}
+
+@mixin contentMain ($display: flex, $justify-content: center, $align-items: center) {
+	display: $display;
+	justify-content: $justify-content;
+	align-items: $align-items;
+}
