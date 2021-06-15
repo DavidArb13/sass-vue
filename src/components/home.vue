@@ -28,6 +28,12 @@
       <router-link :to="'/ejercicio8'">
         <button class="home__buttons__but">Landing Page</button>
       </router-link>
+      <router-link :to="'/ejercicio9'">
+        <button class="home__buttons__but">Tab Bar</button>
+      </router-link>
+      <router-link :to="'/ejercicio10'">
+        <button class="home__buttons__but">Bootstrap</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -46,17 +52,17 @@ button {
     text-align: center;
     color: $splitRight;
     margin: 0px 30px 50px 30px;
-    padding-top: 100px;
+    padding-top: 50px;
     font-size: 1em;
     animation: AnimationTitle 7s alternate-reverse;
     animation-delay: 1s;
     opacity: 1;
-    
+
     @keyframes AnimationTitle {
       50% {
-        margin: 50px 0;
+        margin: 30px 0;
         opacity: 0.5;
-        letter-Spacing: 5px;
+        letter-spacing: 5px;
       }
       100% {
         opacity: 1;
@@ -74,7 +80,7 @@ button {
     flex-direction: column;
 
     &__but {
-      margin: 30px;
+      margin: 10px;
     }
   }
 }
