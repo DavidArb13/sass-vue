@@ -1,16 +1,25 @@
 <template>
   <div class="daarb">
     <h1 class="daarb__title">Daarb</h1>
-    <form id="form" class="daarb__form">
+    <form class="daarb__form" id="form" @submit.prevent="add()">
       <input
         type="text"
         class="daarb__form__input"
         id="input"
         placeholder="Enter your Daarb"
+        v-model="input"
       />
       <ul class="daarb__ul" id="ul">
-        <li>Learn JAVASCRIPT</li>
-        <li class="daarb__ul__li">Lerarn SASS</li>
+        <li
+          class="todo-item"
+          @click="tach(idx)"
+          @contextmenu="delet($event, idx)"
+          :ref="idx"
+          v-for="(task, idx) in this.task"
+          :key="idx"
+        >
+          {{ task }}
+        </li>
       </ul>
     </form>
     <small class="daarb__text">left Click Completed</small>
@@ -23,8 +32,24 @@
 
 <script>
 export default {
+  data() {
+    return {
+      input: "",
+      task: [],
+    };
+  },
   methods: {
-    
+    add() {
+      this.task.push(this.input);
+      this.input = "";
+    },
+    tach(idx) {
+      this.$refs[idx][0].classList.toggle("ok");
+    },
+    delet(e, idx) {
+      e.preventDefault();
+      this.$refs[idx][0].remove();
+    },
   },
 };
 </script>
@@ -92,9 +117,14 @@ export default {
 
     li {
       border-top: 1px solid $Tomato;
-      cursor: padding;
+      cursor: pointer;
       font-size: 1.3rem;
       padding: 10px;
+
+      &.ok {
+        color: #b6b6b6;
+        text-decoration: line-through;
+      }
     }
 
     &__li {
